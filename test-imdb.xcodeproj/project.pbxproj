@@ -106,6 +106,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		369306131F5E8D290044A266 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3693D42F1D87235600CFCFDA /* Parsing */,
+				3693D42E1D87234A00CFCFDA /* Services */,
+				3698AA931D855BD60008A7C7 /* APIService */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		3693D40A1D8722B100CFCFDA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		3693D40B1D8722B500CFCFDA /* ViewConrollers */ = {
 			isa = PBXGroup;
 			children = (
+				3693D40A1D8722B100CFCFDA /* Cells */,
 				3693D4181D87230F00CFCFDA /* DetailsFilmViewController.h */,
 				3693D4191D87230F00CFCFDA /* DetailsFilmViewController.m */,
 				3693D41A1D87230F00CFCFDA /* ListFilmsViewController.h */,
@@ -203,14 +214,11 @@
 		3698AA601D855A170008A7C7 /* test-imdb */ = {
 			isa = PBXGroup;
 			children = (
+				369306131F5E8D290044A266 /* Controllers */,
 				3693D43F1D87316200CFCFDA /* Utils */,
-				3693D42F1D87235600CFCFDA /* Parsing */,
-				3693D42E1D87234A00CFCFDA /* Services */,
 				3693D42A1D87233600CFCFDA /* Models */,
 				3693D4231D87232200CFCFDA /* ViewModels */,
 				3693D40B1D8722B500CFCFDA /* ViewConrollers */,
-				3693D40A1D8722B100CFCFDA /* Cells */,
-				3698AA931D855BD60008A7C7 /* APIService */,
 				3698AA851D855A530008A7C7 /* BaseClasses */,
 				3698AA641D855A170008A7C7 /* AppDelegate.h */,
 				3698AA651D855A170008A7C7 /* AppDelegate.m */,
@@ -341,13 +349,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-test-imdb-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		22C542094BC3450B823035F0 /* [CP] Embed Pods Frameworks */ = {
