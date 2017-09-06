@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MSReuseIdentifierDispatcher : NSObject
-
-@property (nonatomic, copy) NSString* defaultReuseIdentifier;
+@interface ReuseIdentifierDispatcher : NSObject
 
 - (void)registerReuseIdentifier:(NSString*)reuseIdentifier forViewModelClass:(Class)viewModelClass;
-
 - (NSString*)reuseIdentifierForViewModel:(id)ViewModel;
 
 @end

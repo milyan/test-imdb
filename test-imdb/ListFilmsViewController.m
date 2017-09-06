@@ -17,17 +17,17 @@
 #import "DetailsFilmViewController.h"
 
 //Extentions
-#import "UITableViewCell+Utils.h"
 #import "UIView+Utils.h"
 #import "Film+Services.h"
 
 //ViewModels
 #import "ListFilmViewModel.h"
 #import "FilmViewModel.h"
+#import "BaseTableViewController.h"
 
-static NSUInteger FilmCellRowHeight = 166;
+NSUInteger const FilmCellRowHeight = 166;
 
-static NSString *kSegueDetailsFilmVC = @"segueDetailsFilmVC";
+NSString* const kSegueDetailsFilmVC = @"segueDetailsFilmVC";
 
 @interface ListFilmsViewController () <UISearchBarDelegate>
 
@@ -54,26 +54,13 @@ static NSString *kSegueDetailsFilmVC = @"segueDetailsFilmVC";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     FilmViewModel *viewModel = self.viewModel.sections[indexPath.row];
-    [self performSegueWithIdentifier:kSegueDetailsFilmVC sender:viewModel.object];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.viewModel.sections.count - 1) {
-        [self.viewModel loadNextPage];
-    }
-}
-
-#pragma mark - UITableViewDataSource
-
-- (CGFloat)rowHeightForViewModel:(id)viewModel {
-    [super rowHeightForViewModel:viewModel];
-    return FilmCellRowHeight;
+    [self performSegueWithIdentifier:kSegueDetailsFilmVC sender:viewModel.film];
 }
 
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    self.viewModel.searchString = searchBar.text;
+    [self.viewModel searchFilmWithString:searchBar.text];
     [searchBar resignFirstResponder];
 }
 
@@ -82,7 +69,7 @@ static NSString *kSegueDetailsFilmVC = @"segueDetailsFilmVC";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kSegueDetailsFilmVC]) {
         DetailsFilmViewController *controller = segue.destinationViewController;
-        controller.object = sender;
+        controller.film = sender;
     }
 }
 

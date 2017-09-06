@@ -6,12 +6,10 @@
 //  Copyright © 2016 Iurii Gubanov. All rights reserved.
 //
 
-#import "MSBaseControllerViewModel.h"
+#import "BaseControllerViewModel.h"
 
-@interface ListFilmViewModel : MSBaseControllerViewModel
+@interface ListFilmViewModel : BaseControllerViewModel
 
-@property (nonatomic, strong) NSString *searchString;
-
-- (void)loadNextPage;
+- (void)searchFilmWithString:(NSString *)string;
 
 @end

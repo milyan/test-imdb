@@ -11,8 +11,12 @@
 @class Film;
 @interface DetailsFilmViewModel : NSObject
 
-@property (strong, nonatomic) Film* film;
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *titleFilm;
+@property (strong, nonatomic) NSString *prePlot;
+@property (strong, nonatomic) NSString *plot;
+@property (strong, nonatomic) NSString *urlPoster;
+
 
 - (instancetype)initWithFilm:(Film *)film;
 

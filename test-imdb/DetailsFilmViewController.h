@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class Film;
 @interface DetailsFilmViewController : UIViewController
 
-@property (nonatomic, strong) id object;
+@property (nonatomic, strong) Film *film;
 
 @end

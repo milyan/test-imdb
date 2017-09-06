@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		369306161F6004BE0044A266 /* NSDateFormatter+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 369306151F6004BE0044A266 /* NSDateFormatter+Utils.m */; };
 		3693D41C1D87230F00CFCFDA /* DetailsFilmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D4191D87230F00CFCFDA /* DetailsFilmViewController.m */; };
 		3693D41D1D87230F00CFCFDA /* ListFilmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D41B1D87230F00CFCFDA /* ListFilmsViewController.m */; };
 		3693D4211D87231800CFCFDA /* FilmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D41F1D87231800CFCFDA /* FilmCell.m */; };
@@ -17,7 +18,6 @@
 		3693D4381D8724F500CFCFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3693D4361D8724F500CFCFDA /* Main.storyboard */; };
 		3693D43B1D87259F00CFCFDA /* ListFilmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D43A1D87259F00CFCFDA /* ListFilmViewModel.m */; };
 		3693D43E1D8728A900CFCFDA /* FilmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D43D1D8728A900CFCFDA /* FilmViewModel.m */; };
-		3693D4421D87316E00CFCFDA /* UITableViewCell+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D4411D87316E00CFCFDA /* UITableViewCell+Utils.m */; };
 		3693D4451D8731EE00CFCFDA /* NSIndexSet+IndexPathes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D4441D8731EE00CFCFDA /* NSIndexSet+IndexPathes.m */; };
 		3693D4481D87336900CFCFDA /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D4471D87336900CFCFDA /* UIView+Utils.m */; };
 		3693D44B1D875B5600CFCFDA /* DetailsFilmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3693D44A1D875B5600CFCFDA /* DetailsFilmViewModel.m */; };
@@ -26,10 +26,9 @@
 		3698AA661D855A170008A7C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA651D855A170008A7C7 /* AppDelegate.m */; };
 		3698AA6E1D855A170008A7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3698AA6D1D855A170008A7C7 /* Assets.xcassets */; };
 		3698AA711D855A170008A7C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3698AA6F1D855A170008A7C7 /* LaunchScreen.storyboard */; };
-		3698AA8F1D855BC70008A7C7 /* MSBaseControllerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA881D855BC70008A7C7 /* MSBaseControllerViewModel.m */; };
-		3698AA901D855BC70008A7C7 /* MSBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA8A1D855BC70008A7C7 /* MSBaseTableViewCell.m */; };
-		3698AA911D855BC70008A7C7 /* MSBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA8C1D855BC70008A7C7 /* MSBaseTableViewController.m */; };
-		3698AA921D855BC70008A7C7 /* MSReuseIdentifierDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA8E1D855BC70008A7C7 /* MSReuseIdentifierDispatcher.m */; };
+		3698AA8F1D855BC70008A7C7 /* BaseControllerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA881D855BC70008A7C7 /* BaseControllerViewModel.m */; };
+		3698AA911D855BC70008A7C7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA8C1D855BC70008A7C7 /* BaseTableViewController.m */; };
+		3698AA921D855BC70008A7C7 /* ReuseIdentifierDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA8E1D855BC70008A7C7 /* ReuseIdentifierDispatcher.m */; };
 		3698AA961D855BE40008A7C7 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698AA951D855BE40008A7C7 /* APIService.m */; };
 		78FAB2FF424437FB04F35FB9 /* libPods-test-imdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028B30111C75734E5E092892 /* libPods-test-imdb.a */; };
 /* End PBXBuildFile section */
@@ -37,6 +36,8 @@
 /* Begin PBXFileReference section */
 		028B30111C75734E5E092892 /* libPods-test-imdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test-imdb.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DBD53BFFC140DF2D989AC2 /* Pods-test-imdb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test-imdb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test-imdb/Pods-test-imdb.debug.xcconfig"; sourceTree = "<group>"; };
+		369306141F6004BE0044A266 /* NSDateFormatter+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Utils.h"; sourceTree = "<group>"; };
+		369306151F6004BE0044A266 /* NSDateFormatter+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Utils.m"; sourceTree = "<group>"; };
 		3693D4181D87230F00CFCFDA /* DetailsFilmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsFilmViewController.h; sourceTree = "<group>"; };
 		3693D4191D87230F00CFCFDA /* DetailsFilmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsFilmViewController.m; sourceTree = "<group>"; };
 		3693D41A1D87230F00CFCFDA /* ListFilmsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFilmsViewController.h; sourceTree = "<group>"; };
@@ -55,8 +56,6 @@
 		3693D43A1D87259F00CFCFDA /* ListFilmViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFilmViewModel.m; sourceTree = "<group>"; };
 		3693D43C1D8728A900CFCFDA /* FilmViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilmViewModel.h; sourceTree = "<group>"; };
 		3693D43D1D8728A900CFCFDA /* FilmViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilmViewModel.m; sourceTree = "<group>"; };
-		3693D4401D87316E00CFCFDA /* UITableViewCell+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Utils.h"; sourceTree = "<group>"; };
-		3693D4411D87316E00CFCFDA /* UITableViewCell+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Utils.m"; sourceTree = "<group>"; };
 		3693D4431D8731EE00CFCFDA /* NSIndexSet+IndexPathes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+IndexPathes.h"; sourceTree = "<group>"; };
 		3693D4441D8731EE00CFCFDA /* NSIndexSet+IndexPathes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+IndexPathes.m"; sourceTree = "<group>"; };
 		3693D4461D87336900CFCFDA /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
@@ -72,15 +71,13 @@
 		3698AA6D1D855A170008A7C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3698AA701D855A170008A7C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3698AA721D855A170008A7C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3698AA861D855BC70008A7C7 /* MSBaseConfigureCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseConfigureCellProtocol.h; sourceTree = "<group>"; };
-		3698AA871D855BC70008A7C7 /* MSBaseControllerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseControllerViewModel.h; sourceTree = "<group>"; };
-		3698AA881D855BC70008A7C7 /* MSBaseControllerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseControllerViewModel.m; sourceTree = "<group>"; };
-		3698AA891D855BC70008A7C7 /* MSBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseTableViewCell.h; sourceTree = "<group>"; };
-		3698AA8A1D855BC70008A7C7 /* MSBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseTableViewCell.m; sourceTree = "<group>"; };
-		3698AA8B1D855BC70008A7C7 /* MSBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseTableViewController.h; sourceTree = "<group>"; };
-		3698AA8C1D855BC70008A7C7 /* MSBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseTableViewController.m; sourceTree = "<group>"; };
-		3698AA8D1D855BC70008A7C7 /* MSReuseIdentifierDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSReuseIdentifierDispatcher.h; sourceTree = "<group>"; };
-		3698AA8E1D855BC70008A7C7 /* MSReuseIdentifierDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSReuseIdentifierDispatcher.m; sourceTree = "<group>"; };
+		3698AA861D855BC70008A7C7 /* BaseConfigureCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseConfigureCellProtocol.h; sourceTree = "<group>"; };
+		3698AA871D855BC70008A7C7 /* BaseControllerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseControllerViewModel.h; sourceTree = "<group>"; };
+		3698AA881D855BC70008A7C7 /* BaseControllerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseControllerViewModel.m; sourceTree = "<group>"; };
+		3698AA8B1D855BC70008A7C7 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		3698AA8C1D855BC70008A7C7 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		3698AA8D1D855BC70008A7C7 /* ReuseIdentifierDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseIdentifierDispatcher.h; sourceTree = "<group>"; };
+		3698AA8E1D855BC70008A7C7 /* ReuseIdentifierDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseIdentifierDispatcher.m; sourceTree = "<group>"; };
 		3698AA941D855BE40008A7C7 /* APIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIService.h; sourceTree = "<group>"; };
 		3698AA951D855BE40008A7C7 /* APIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIService.m; sourceTree = "<group>"; };
 		B358DA8C09763CE9AAD622E8 /* Pods-test-imdb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test-imdb.release.xcconfig"; path = "Pods/Target Support Files/Pods-test-imdb/Pods-test-imdb.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,10 +182,10 @@
 				3693D4471D87336900CFCFDA /* UIView+Utils.m */,
 				3693D4431D8731EE00CFCFDA /* NSIndexSet+IndexPathes.h */,
 				3693D4441D8731EE00CFCFDA /* NSIndexSet+IndexPathes.m */,
-				3693D4401D87316E00CFCFDA /* UITableViewCell+Utils.h */,
-				3693D4411D87316E00CFCFDA /* UITableViewCell+Utils.m */,
 				3693D44C1D875ECE00CFCFDA /* NSMutableAttributedString+Utils.h */,
 				3693D44D1D875ECE00CFCFDA /* NSMutableAttributedString+Utils.m */,
+				369306141F6004BE0044A266 /* NSDateFormatter+Utils.h */,
+				369306151F6004BE0044A266 /* NSDateFormatter+Utils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -242,15 +239,13 @@
 		3698AA851D855A530008A7C7 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
-				3698AA861D855BC70008A7C7 /* MSBaseConfigureCellProtocol.h */,
-				3698AA871D855BC70008A7C7 /* MSBaseControllerViewModel.h */,
-				3698AA881D855BC70008A7C7 /* MSBaseControllerViewModel.m */,
-				3698AA891D855BC70008A7C7 /* MSBaseTableViewCell.h */,
-				3698AA8A1D855BC70008A7C7 /* MSBaseTableViewCell.m */,
-				3698AA8B1D855BC70008A7C7 /* MSBaseTableViewController.h */,
-				3698AA8C1D855BC70008A7C7 /* MSBaseTableViewController.m */,
-				3698AA8D1D855BC70008A7C7 /* MSReuseIdentifierDispatcher.h */,
-				3698AA8E1D855BC70008A7C7 /* MSReuseIdentifierDispatcher.m */,
+				3698AA861D855BC70008A7C7 /* BaseConfigureCellProtocol.h */,
+				3698AA871D855BC70008A7C7 /* BaseControllerViewModel.h */,
+				3698AA881D855BC70008A7C7 /* BaseControllerViewModel.m */,
+				3698AA8B1D855BC70008A7C7 /* BaseTableViewController.h */,
+				3698AA8C1D855BC70008A7C7 /* BaseTableViewController.m */,
+				3698AA8D1D855BC70008A7C7 /* ReuseIdentifierDispatcher.h */,
+				3698AA8E1D855BC70008A7C7 /* ReuseIdentifierDispatcher.m */,
 			);
 			name = BaseClasses;
 			sourceTree = "<group>";
@@ -302,11 +297,12 @@
 		3698AA561D855A170008A7C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Iurii Gubanov";
 				TargetAttributes = {
 					3698AA5D1D855A170008A7C7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 3DG4DBL8BX;
 					};
 				};
 			};
@@ -403,17 +399,16 @@
 				3693D41C1D87230F00CFCFDA /* DetailsFilmViewController.m in Sources */,
 				3693D4341D87236400CFCFDA /* Film+Parsing.m in Sources */,
 				3693D43B1D87259F00CFCFDA /* ListFilmViewModel.m in Sources */,
-				3693D4421D87316E00CFCFDA /* UITableViewCell+Utils.m in Sources */,
 				3693D4451D8731EE00CFCFDA /* NSIndexSet+IndexPathes.m in Sources */,
-				3698AA8F1D855BC70008A7C7 /* MSBaseControllerViewModel.m in Sources */,
+				3698AA8F1D855BC70008A7C7 /* BaseControllerViewModel.m in Sources */,
+				369306161F6004BE0044A266 /* NSDateFormatter+Utils.m in Sources */,
 				3693D43E1D8728A900CFCFDA /* FilmViewModel.m in Sources */,
 				3698AA961D855BE40008A7C7 /* APIService.m in Sources */,
 				3693D4211D87231800CFCFDA /* FilmCell.m in Sources */,
 				3698AA661D855A170008A7C7 /* AppDelegate.m in Sources */,
 				3693D4481D87336900CFCFDA /* UIView+Utils.m in Sources */,
-				3698AA901D855BC70008A7C7 /* MSBaseTableViewCell.m in Sources */,
-				3698AA911D855BC70008A7C7 /* MSBaseTableViewController.m in Sources */,
-				3698AA921D855BC70008A7C7 /* MSReuseIdentifierDispatcher.m in Sources */,
+				3698AA911D855BC70008A7C7 /* BaseTableViewController.m in Sources */,
+				3698AA921D855BC70008A7C7 /* ReuseIdentifierDispatcher.m in Sources */,
 				3693D44E1D875ECE00CFCFDA /* NSMutableAttributedString+Utils.m in Sources */,
 				3698AA631D855A170008A7C7 /* main.m in Sources */,
 				3693D42D1D87234300CFCFDA /* Film.m in Sources */,
@@ -457,8 +452,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -501,8 +498,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -531,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3DG4DBL8BX;
 				INFOPLIST_FILE = "test-imdb/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -549,6 +549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "gubanov.test-imdb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -558,6 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3DG4DBL8BX;
 				INFOPLIST_FILE = "test-imdb/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -576,6 +578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "gubanov.test-imdb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

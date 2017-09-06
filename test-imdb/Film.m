@@ -10,4 +10,10 @@
 
 @implementation Film
 
+- (NSInteger)year {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger year = [calendar component:NSCalendarUnitYear fromDate:self.releaseDate];
+    return year;
+}
+
 @end

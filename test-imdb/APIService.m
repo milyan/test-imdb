@@ -13,7 +13,7 @@
 
 static AFHTTPSessionManager* _sessionManager = nil;
 
-NSString *const kBaseURLString = @"http://www.omdbapi.com/";
+NSString *const kBaseURLString = @"https://itunes.apple.com/search?";
 
 @implementation APIService
 
@@ -23,6 +23,7 @@ NSString *const kBaseURLString = @"http://www.omdbapi.com/";
         _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLString]
                                                    sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         _sessionManager.securityPolicy.allowInvalidCertificates = YES;
+        _sessionManager.securityPolicy.validatesDomainName = NO;
     });
     return _sessionManager;
 }

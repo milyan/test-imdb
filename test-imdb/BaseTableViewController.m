@@ -6,38 +6,39 @@
 //  Copyright © 2016 Iurii Gubanov. All rights reserved.
 //
 
-#import "MSBaseTableViewController.h"
+#import "BaseTableViewController.h"
 
 //Pods
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 //Models
-#import "MSBaseControllerViewModel.h"
+#import "BaseControllerViewModel.h"
 
 //Extentions
-#import "UITableViewCell+Utils.h"
 #import "NSIndexSet+IndexPathes.h"
 
-NSInteger const kDynamicHeightCell = -1;
 
-@interface MSBaseTableViewController ()
+@interface BaseTableViewController ()
 
 @property (nonatomic) RACDisposable *sectionsObservation;
 
-
 @end
 
-@implementation MSBaseTableViewController
+@implementation BaseTableViewController
 
-- (MSReuseIdentifierDispatcher *)dispatcher {
+- (ReuseIdentifierDispatcher *)dispatcher {
     if (!_dispatcher) {
-        _dispatcher = [MSReuseIdentifierDispatcher new];
+        _dispatcher = [ReuseIdentifierDispatcher new];
     }
     return _dispatcher;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44;
+    
     RAC(self, navigationItem.title) = RACObserve(self, viewModel.title);
     
     @weakify(self);
@@ -71,32 +72,17 @@ NSInteger const kDynamicHeightCell = -1;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id viewModel = self.viewModel.sections[indexPath.row];
     NSString *reuseIdentifier = [self.dispatcher reuseIdentifierForViewModel:viewModel];
-    UITableViewCell<MSBaseConfigureCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    NSString *message = [NSString stringWithFormat:@"ViewModel %@ not register.", NSStringFromClass([viewModel class])];
+    NSAssert(reuseIdentifier, message);
+    UITableViewCell<BaseConfigureCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     [self configureCell:cell forViewModel:viewModel];
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id viewModel = self.viewModel.sections[indexPath.row];
-    CGFloat height = [self rowHeightForViewModel:viewModel];
-    if (height == kDynamicHeightCell) {
-        NSString *reuseIdentifier = [self.dispatcher reuseIdentifierForViewModel:viewModel];
-        UITableViewCell<MSBaseConfigureCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];// forIndexPath:indexPath];
-        height = [cell systemCompressedHeightWithTableView:tableView];
-    }
-    return height;
-}
-
 #pragma mark - public methods
 
-- (void)configureCell:(UITableViewCell<MSBaseConfigureCellProtocol> *)cell forViewModel:(id)viewModel {
+- (void)configureCell:(UITableViewCell<BaseConfigureCellProtocol> *)cell forViewModel:(id)viewModel {
     [cell configureWithViewModel:viewModel];
-}
-
-- (CGFloat)rowHeightForViewModel:(id)viewModel {
-    return kDynamicHeightCell;
 }
 
 - (void)registerNibWithClass:(Class)cellClass {

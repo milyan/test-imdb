@@ -6,7 +6,7 @@
 //  Copyright © 2016 Iurii Gubanov. All rights reserved.
 //
 
-#import "MSReuseIdentifierDispatcher.h"
+#import "ReuseIdentifierDispatcher.h"
 
 @interface MSItemDispatcher : NSObject
 
@@ -19,13 +19,13 @@
 
 @end
 
-@interface MSReuseIdentifierDispatcher ()
+@interface ReuseIdentifierDispatcher ()
 
 @property (strong, nonatomic) NSMutableArray *items;
 
 @end
 
-@implementation MSReuseIdentifierDispatcher
+@implementation ReuseIdentifierDispatcher
 
 - (void)registerReuseIdentifier:(NSString *)reuseIdentifier forViewModelClass:(Class)viewModelClass {
     
@@ -48,7 +48,7 @@
             return item.reuseIdentifier;
         }
     }
-    return self.defaultReuseIdentifier;
+    return nil;
 }
 
 @end

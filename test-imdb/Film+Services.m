@@ -15,12 +15,14 @@
 
 @implementation Film (Services)
 
-+ (RACSignal *)loadFilmsWithString:(NSString *)string page:(NSUInteger)page {
-    NSDictionary *parameters = @{@"s" : string, @"page" : @(page)};
++ (RACSignal *)loadFilmsWithString:(NSString *)string {
+    NSDictionary *parameters = @{@"term"      : string,
+                                 @"entity"    : @"movie",
+                                 };
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSMutableArray *results = [@[] mutableCopy];
         [[APIService loadRequestWithParameters:parameters] subscribeNext:^(id response) {
-            NSArray *films = response[@"Search"];
+            NSArray *films = response[@"results"];
             for (NSDictionary *dict in films) {
                 Film *film = [[Film alloc] initWithValues:dict];
                 [results addObject:film];
@@ -32,22 +34,6 @@
             [subscriber sendCompleted];
         }];
         
-        return nil;
-    }];
-}
-
-- (RACSignal *)loadDetailsFilmByIdentifier {
-    NSDictionary *parameters = @{@"i"       : self.identifier,
-                                 @"plot"    : @"full",
-                                 @"r"       : @"json"};
-    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [[APIService loadRequestWithParameters:parameters] subscribeNext:^(id response) {
-            [self updateWithValues:response];
-            [subscriber sendCompleted];
-        } error:^(NSError *error) {
-            [subscriber sendNext:error];
-            [subscriber sendCompleted];
-        }];
         return nil;
     }];
 }

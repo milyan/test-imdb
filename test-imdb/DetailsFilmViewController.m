@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [[DetailsFilmViewModel alloc] initWithFilm:self.object];
+    self.viewModel = [[DetailsFilmViewModel alloc] initWithFilm:self.film];
     [self racBinding];
 }
 
@@ -47,33 +47,20 @@
 
     RAC(self.navigationItem, title) = RACObserve(self, viewModel.title);
     
-    [self rac_liftSelector:@selector(updatePosterWithUrlString:) withSignals:RACObserve(self, viewModel.film.poster), nil];
+    [self rac_liftSelector:@selector(updatePosterWithUrlString:) withSignals:RACObserve(self, viewModel.urlPoster), nil];
     
-    RAC(self.titleLabel, text) = RACObserve(self, viewModel.film.title);
+    RAC(self.titleLabel, text) = RACObserve(self, viewModel.titleFilm);
     
-    @weakify(self);
-    RAC(self.prePlotLabel, text) = [RACObserve(self, viewModel.film.runtime) map:^NSString *(NSString *runtime) {
-        @strongify(self);
-        return [NSString stringWithFormat:@"%@ | %@ | %@", runtime, self.viewModel.film.genre, self.viewModel.film.released];
-    }];
+    RAC(self.prePlotLabel, text) = RACObserve(self, viewModel.prePlot);
     
-    RAC(self.plotLabel, text) = RACObserve(self, viewModel.film.plot);
+    RAC(self.plotLabel, text) = RACObserve(self, viewModel.plot);
     
-    RAC(self.directorLabel, attributedText) = [[RACObserve(self, viewModel.film.director) ignore:nil] map:^NSAttributedString *(NSString *director) {
-        return [NSMutableAttributedString attributedStringWithFirstString:@"Director:" secondString:director];
-    }];
-    
-    RAC(self.writesLabel, attributedText) = [[RACObserve(self, viewModel.film.writer) ignore:nil] map:^NSAttributedString *(NSString *writer) {
-        return [NSMutableAttributedString attributedStringWithFirstString:@"Writer:" secondString:writer];
-    }];
-    
-    RAC(self.actorsLabel, attributedText) = [[RACObserve(self, viewModel.film.actors) ignore:nil] map:^NSAttributedString *(NSString *actors) {
-        return [NSMutableAttributedString attributedStringWithFirstString:@"Actors:" secondString:actors];
-    }];
 }
 
 - (void)updatePosterWithUrlString:(NSString *)urlString {
-    [self.posterImageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    NSURL *URLImage = [NSURL URLWithString:urlString];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    [self.posterImageView sd_setImageWithURL:URLImage placeholderImage:placeholderImage];
 }
 
 @end

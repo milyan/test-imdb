@@ -8,29 +8,22 @@
 
 #import "Film+Parsing.h"
 
+#import "NSDateFormatter+Utils.h"
+
 @implementation Film (Parsing)
 
 - (instancetype)initWithValues:(NSDictionary *)values {
     if (self = [super init]) {
-        self.identifier = values[@"imdbID"];
-        self.title = values[@"Title"];
-        self.poster = values[@"Poster"];
-        self.year = [values[@"Year"] integerValue];
-        self.type = values[@"Type"];
+        self.identifier = values[@"trackId"];
+        self.title = values[@"trackName"];
+        self.poster = values[@"artworkUrl100"];
+        NSDateFormatter *formatter = [NSDateFormatter parsingFormatter];
+        self.releaseDate = [formatter dateFromString:values[@"releaseDate"]];
+        self.genre = values[@"primaryGenreName"];
+        self.longDescription = values[@"longDescription"];
+        self.country = values[@"country"];
     }
     return self;
-}
-
-- (void)updateWithValues:(NSDictionary *)values {
-    self.actors = values[@"Actors"];
-    self.country = values[@"Country"];
-    self.director = values[@"Director"];
-    self.genre = values[@"Genre"];
-    self.language = values[@"Language"];
-    self.plot = values[@"Plot"];
-    self.released = values[@"Released"];
-    self.runtime = values[@"Runtime"];
-    self.writer = values[@"Writer"];
 }
 
 @end

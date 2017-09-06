@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MSBaseTableViewController.h"
+#import "BaseTableViewController.h"
 
-@interface ListFilmsViewController : MSBaseTableViewController
+@interface ListFilmsViewController : BaseTableViewController
 
 @end

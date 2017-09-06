@@ -11,7 +11,6 @@
 @class RACSignal;
 @interface Film (Services)
 
-+ (RACSignal *)loadFilmsWithString:(NSString *)string page:(NSUInteger)page;
-- (RACSignal *)loadDetailsFilmByIdentifier;
++ (RACSignal *)loadFilmsWithString:(NSString *)string;
 
 @end

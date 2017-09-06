@@ -16,21 +16,26 @@
 
 //Extentions
 #import "Film+Services.h"
+#import "NSDateFormatter+Utils.h"
+
+@interface DetailsFilmViewModel ()
+
+@property (strong, nonatomic) Film* film;
+
+@end
 
 @implementation DetailsFilmViewModel
 
 - (instancetype)initWithFilm:(Film *)film {
     if (self = [super init]) {
         _film = film;
-        [self loadDetailsFilm];
+        _urlPoster = film.poster;
+        _plot = film.longDescription;
+        _titleFilm = film.title;
+        NSDateFormatter *formatter = [NSDateFormatter viewFormatter];
+        _prePlot = [NSString stringWithFormat:@"%@ | %@ | %@", film.genre, film.country, [formatter stringFromDate:film.releaseDate]];
     }
     return self;
-}
-
-- (void)loadDetailsFilm {
-    [[self.film loadDetailsFilmByIdentifier] subscribeError:^(NSError *error) {
-        NSLog(@"error = %@", error);
-    }];
 }
 
 - (NSString *)title {

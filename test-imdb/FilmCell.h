@@ -6,8 +6,9 @@
 //  Copyright © 2016 Юрий Губанов. All rights reserved.
 //
 
-#import "MSBaseTableViewCell.h"
+#import <UIKit/UIKit.h>
+#import "BaseConfigureCellProtocol.h"
 
-@interface FilmCell : MSBaseTableViewCell
+@interface FilmCell: UITableViewCell<BaseConfigureCellProtocol>
 
 @end

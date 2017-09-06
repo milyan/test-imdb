@@ -6,10 +6,10 @@
 //  Copyright © 2016 Iurii Gubanov. All rights reserved.
 //
 
-#import "MSBaseControllerViewModel.h"
+#import "BaseControllerViewModel.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@implementation MSBaseControllerViewModel
+@implementation BaseControllerViewModel
 
 @end

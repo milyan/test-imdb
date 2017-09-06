@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MSBaseControllerViewModel : NSObject
+@interface BaseControllerViewModel : NSObject
 
 @property (strong, nonatomic) NSMutableArray *sections;
 @property (strong, nonatomic) NSString *title;

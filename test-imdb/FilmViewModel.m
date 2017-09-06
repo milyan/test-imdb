@@ -8,11 +8,16 @@
 
 #import "FilmViewModel.h"
 
+#import "Film.h"
+
 @implementation FilmViewModel
 
-- (instancetype)initWithObject:(id)object {
+- (instancetype)initWithFilm:(Film *)film {
     if (self = [super init]) {
-        _object = object;
+        _year = film.year;
+        _titleFilm = film.title;
+        _urlPoster = film.poster;
+        _film = film;
     }
     return self;
 }

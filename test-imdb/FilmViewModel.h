@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class Film;
 @interface FilmViewModel : NSObject
 
-@property (strong, nonatomic) id object;
+@property (strong, nonatomic) Film *film;
+@property (nonatomic) NSInteger year;
+@property (strong, nonatomic) NSString *urlPoster;
+@property (strong, nonatomic) NSString *titleFilm;
 
-- (instancetype)initWithObject:(id)object;
+- (instancetype)initWithFilm:(Film *)film;
 
 @end

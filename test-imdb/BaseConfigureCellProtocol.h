@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MSBaseConfigureCellProtocol <NSObject>
+@protocol BaseConfigureCellProtocol <NSObject>
 
 @required
 - (void)configureWithViewModel:(id)viewModel;

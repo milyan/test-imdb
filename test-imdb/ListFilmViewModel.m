@@ -17,53 +17,26 @@
 //ViewModels
 #import "FilmViewModel.h"
 
-static NSUInteger pageSize = 10;
-
-@interface ListFilmViewModel ()
-
-@property (nonatomic) NSUInteger page;
-@property (nonatomic) BOOL isLastPage;
-
-@end
-
 @implementation ListFilmViewModel
 
 - (NSString *)title {
     return NSLocalizedString(@"Search", nil);
 }
 
-#pragma mark - private methods
+#pragma mark - public methdos
 
-- (void)loadFilmsWithPage:(NSUInteger)page {
-    if (!self.isLastPage) {
-        @weakify(self);
-        [[Film loadFilmsWithString:self.searchString page:page] subscribeNext:^(NSArray *films) {
-            @strongify(self);
-            for (Film *film in films) {
-                FilmViewModel *viewModel = [[FilmViewModel alloc] initWithObject:film];
-                [self.sections insertObject:viewModel atIndex:self.sections.count];
-            }
-            self.isLastPage = films.count != pageSize;
-        } error:^(NSError *error) {
-            NSLog(@"error = %@", error);
-        }];
-    }
-}
-
-#pragma mark - public methods
-
-- (void)loadNextPage {
-    [self loadFilmsWithPage:++self.page];
-}
-
-#pragma mark - Accessory methods
-
-- (void)setSearchString:(NSString *)searchString {
-    _searchString = searchString;
+- (void)searchFilmWithString:(NSString *)string {
     [self.sections removeAllObjects];
-    self.isLastPage = NO;
-    self.page = 1;
-    [self loadFilmsWithPage:self.page];
+    @weakify(self);
+    [[Film loadFilmsWithString:string] subscribeNext:^(NSArray *films) {
+        @strongify(self);
+        for (Film *film in films) {
+            FilmViewModel *viewModel = [[FilmViewModel alloc] initWithFilm:film];
+            [self.sections insertObject:viewModel atIndex:self.sections.count];
+        }
+    } error:^(NSError *error) {
+        NSLog(@"error = %@", error);
+    }];
 }
 
 @end

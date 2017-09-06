@@ -11,6 +11,5 @@
 @interface Film (Parsing)
 
 - (instancetype)initWithValues:(NSDictionary *)values;
-- (void)updateWithValues:(NSDictionary *)values;
 
 @end

@@ -12,9 +12,6 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-//Models
-#import "Film.h"
-
 //ViewModels
 #import "FilmViewModel.h"
 
@@ -23,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @end
 
@@ -40,22 +36,20 @@
     self.titleLabel.font = [UIFont fontWithName:@"Helvetice-Bold" size:16];
     self.yearLabel.font = [UIFont fontWithName:@"Helvetiva" size:14];
     self.yearLabel.textColor = [UIColor lightGrayColor];
-    self.typeLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-    self.typeLabel.textColor = [UIColor lightGrayColor];
 }
 
 - (void)updateImageWithUrlString:(NSString *)urlString {
-    [self.posterImageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    NSURL *urlImage = [NSURL URLWithString:urlString];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    [self.posterImageView sd_setImageWithURL:urlImage placeholderImage:placeholderImage];
 }
 
 #pragma mark - MSBaseConfigureCellProtocol
 
 - (void)configureWithViewModel:(FilmViewModel *)viewModel {
-    Film *film = viewModel.object;
-    self.titleLabel.text = film.title;
-    self.yearLabel.text = [NSString stringWithFormat:@"%lu", film.year];
-    self.typeLabel.text = film.type;
-    [self updateImageWithUrlString:film.poster];
+    self.titleLabel.text = viewModel.titleFilm;
+    self.yearLabel.text = [NSString stringWithFormat:@"%lu", (long)viewModel.year];
+    [self updateImageWithUrlString:viewModel.urlPoster];
 }
 
 @end
